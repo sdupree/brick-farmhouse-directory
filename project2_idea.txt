@@ -1,0 +1,61 @@
+Brick Farmhouse Database
+
+Google Maps integration?
+
+"House Characteristics" can be a M:M
+
+AAU, I want to view a list of houses.
+AAU, I want to be able to store a house in a list of favorite houses.
+As A User, I want to be able to view a list of my favorite houses.
+AAU, I want to add a new house.
+AAU, I want to edit an existing house (if I added it)
+Sort by date added, highest-rated (most-liked), etc.
+AAU, I want to be able to "like" a house.
+AAU, I want to view a list of "most liked" houses.
+
+User Page:
+ -My Houses
+ -Favorite Houses
+ -My Comments
+
+House Page:
+ -House Name
+ -House Picture(s)
+ -House Location
+ -House Comments
+ -Add New Comment
+
+Nav:
+ -Home
+ -House Index
+ -Add New House (logged in)
+ -User Page (logged in)
+ -Log In/Log Out
+
+---- Database:
+House
+- Main image
+- Images[]
+- Lat/Lon
+- Year Built
+Characteristics
+- Doors
+- Floors
+- Attic
+- Attic Beam Type
+- Exposed Basement
+- Chimney Count
+- Bedrooms
+- Kitchen Type (modern/classic)
+- Restoration Status
+- Heating System(s)
+- Indoor Plumbing
+- Total Fireplaces
+- Restored
+- Modernized
+- Apartment
+-- Apartment location: front, side, back
+-- Apartment characteristics?
+Comment
+Users
+
