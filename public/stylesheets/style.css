@@ -86,3 +86,8 @@ house-nav {
   justify-content: center;
   align-items: center;
 }
+
+.nav-icon {
+  height: 45px;
+  width: 49px;
+}
