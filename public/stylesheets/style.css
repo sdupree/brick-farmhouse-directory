@@ -20,7 +20,6 @@ body > nav {
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding: 0 20px 0 30px;
 }
 
 body > main {
@@ -33,10 +32,11 @@ body > main {
   overflow-y: scroll;
 }
 
-#header-image {
+#header-img {
   width: 44px;
-  /* object-fit: contain; */
-  /* margin-right: auto; */
+  margin-bottom: 6px;
+  margin-left: -20px;
+  margin-right: 5px;
 }
 
 #header-span {
@@ -73,4 +73,16 @@ nav > a.active {
 
 .login img {
   height: 30px;
+}
+
+#house-name {
+  font-size: 35px;
+  min-width: 800px;
+  text-align: center;
+}
+
+house-nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
