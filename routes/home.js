@@ -4,7 +4,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Brick Farmhouse Directory' });
+  res.render('home', { title: 'Brick Farmhouse Directory' });
 });
 
 // Google OAuth login route
