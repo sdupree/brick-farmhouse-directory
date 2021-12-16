@@ -35,7 +35,7 @@ body > main {
 #header-img {
   width: 44px;
   margin-bottom: 6px;
-  margin-left: -20px;
+  /* margin-left: -20px; */
   margin-right: 5px;
 }
 
@@ -47,19 +47,19 @@ body > main {
   margin-right: auto;
 }
 
-nav > a {
+.nav-a {
   margin: 20px;
   text-decoration: none;
   padding: 10px;
   border-radius: 5px;
 }
 
-nav > a:hover:not(.active) {
+.nav-a:hover:not(.active) {
   color: white;
   background-color: #424748;
 }
 
-nav > a.active {
+.nav-a.active {
   color: white;
   cursor: default;
 }
@@ -81,7 +81,7 @@ nav > a.active {
   text-align: center;
 }
 
-house-nav {
+house-nav, house-img {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,4 +90,44 @@ house-nav {
 .nav-icon {
   height: 45px;
   width: 49px;
+}
+
+#nav-house-left {
+  background: url('/images/nav-house-left.png');
+  background-size: 100% 100%;
+}
+
+#nav-house-right {
+  background: url('/images/nav-house-right.png');
+  background-size: 100% 100%;
+}
+
+#nav-img-left {
+  background: url('/images/nav-img-left.png');
+  background-size: 100% 100%;
+}
+
+#nav-img-right {
+  background: url('/images/nav-img-right.png');
+  background-size: 100% 100%;
+}
+
+#nav-house-left:hover {
+  background: url('/images/nav-house-left-hover.png');
+  background-size: 100% 100%;
+}
+
+#nav-house-right:hover {
+  background: url('/images/nav-house-right-hover.png');
+  background-size: 100% 100%;
+}
+
+#nav-img-left:hover {
+  background: url('/images/nav-img-left-hover.png');
+  background-size: 100% 100%;
+}
+
+#nav-img-right:hover {
+  background: url('/images/nav-img-right-hover.png');
+  background-size: 100% 100%;
 }
