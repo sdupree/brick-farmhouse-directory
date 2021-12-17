@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+<house-nav>
+  <div class="nav-icon" id="nav-house-left"></div>
+  <span id="house-name"><%= house.name %></span>
+  <div class="nav-icon" id="nav-house-right"></div>
+</house-nav>
+<house-img>
+  <div class="nav-icon" id="nav-img-left"></div>
+  <img src="<%= house.featuredPicture %>" width="800" height="600" id="house-main-img">
+  <div class="nav-icon" id="nav-img-right"></div>
+</house-img>
+<house-text>
+  <table>
+    <tr><td class="table-key">Location:</td><td><%= house.location %></td><td class="table-key">Latitude/Longitude:</td><td><%= house.latLon %></td></tr>
+    <tr><td class="table-key">Construction Year:</td><td><%= house.constructionYear %></td><td class="table-key">Architectural Style:</td><td><%= house.archStyle %></td></tr>
+  </table>
+  <p><%= house.description %></p>
+</house-text>
+<%- include('../partials/footer') %>

@@ -1,0 +1,8 @@
+<%- include('../partials/header') %>
+<table>
+  <tr><th>thumb</th><th>House Name</th><th>Location</th></tr>
+  <% for(const house of houses) { %>
+    <tr><td><img src="<%= house.featuredPicture %>" width=120 height=90></td><td><%= house.name %></td><td><%= house.location %></td></tr>
+  <% } %>
+</table>
+<%- include('../partials/footer') %>

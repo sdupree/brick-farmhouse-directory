@@ -10,6 +10,7 @@ const methodOverride = require('method-override');
 const isLoggedIn = require('./config/auth');
 
 const homeRouter = require('./routes/home');
+const housesRouter = require('./routes/houses');
 const usersRouter = require('./routes/users');
 
 // Load configuration from file.
@@ -47,6 +48,7 @@ app.use(function(req, res, next) {
 });
 
 app.use('/', homeRouter);
+app.use('/houses', housesRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

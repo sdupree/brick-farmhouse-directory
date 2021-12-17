@@ -7,7 +7,7 @@
 body {
   height: 100vh;
   display: grid;
-  grid-template-rows: 50px 1fr;
+  grid-template-rows: 56px 1fr;
   grid-template-areas: 
     "nav"
     "main";
@@ -37,7 +37,7 @@ body > main {
 
 #header-home {
   margin-right: auto;
-  font-size: 26px;
+  font-size: 28px;
   padding: 0px 10px;
 }
 
