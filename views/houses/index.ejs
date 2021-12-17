@@ -1,8 +1,32 @@
 <%- include('../partials/header') %>
-<table>
-  <tr><th>thumb</th><th>House Name</th><th>Location</th></tr>
+<table class="table">
+  <thead>
+    <tr><th></th><th>House Name</th><th>Location</th></tr>
+  </thead>
+  <tbody>
   <% for(const house of houses) { %>
-    <tr><td><img src="<%= house.featuredPicture %>" width=120 height=90></td><td><%= house.name %></td><td><%= house.location %></td></tr>
+    <tr>
+      <td class="thumb-td">
+        <a href="/houses/<%= house._id %>">
+          <img src="<%= house.featuredPicture %>" class="thumb-img">
+        </a>
+      </td>
+      <td>
+        <a href="/houses/<%= house._id %>">
+          <div class="td-a">
+            <%= house.name %>
+          </div>
+        </a>
+      </td>
+      <td>
+        <a href="/houses/<%= house._id %>">
+          <div class="td-a">
+            <%= house.location %>
+          </div>
+        </a>
+      </td>
+    </tr>
   <% } %>
+  </tbody>
 </table>
 <%- include('../partials/footer') %>

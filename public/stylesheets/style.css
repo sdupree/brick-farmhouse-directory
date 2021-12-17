@@ -137,3 +137,20 @@ house-text {
   background: url('/images/nav-img-right-hover.png');
   background-size: 100% 100%;
 }
+
+.td-a {
+  height: 90px;
+  /* background-color: #fff; */
+  padding: 30px;
+}
+
+.thumb-td {
+  width: 120px;
+}
+
+.thumb-img {
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 120px;
+  height: 90px;
+}
