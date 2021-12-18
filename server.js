@@ -10,6 +10,7 @@ const methodOverride = require('method-override');
 const isLoggedIn = require('./config/auth');
 
 const homeRouter = require('./routes/home');
+const picturesRouter = require('./routes/pictures');
 const housesRouter = require('./routes/houses');
 const usersRouter = require('./routes/users');
 
@@ -48,6 +49,7 @@ app.use(function(req, res, next) {
 });
 
 app.use('/', homeRouter);
+app.use('/', picturesRouter);
 app.use('/houses', housesRouter);
 app.use('/users', usersRouter);
 
