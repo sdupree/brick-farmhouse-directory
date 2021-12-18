@@ -43,7 +43,11 @@ const houseSchema = new Schema({
   pictures: [{
     type: Schema.Types.ObjectId,
     ref: 'Picture'
-  }]
+  }],
+  user: {
+    type: Schema.Types.ObjectId,
+    ref: 'User'
+  }
 }, {
   timestamps: true,
 });

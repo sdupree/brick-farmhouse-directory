@@ -14,7 +14,16 @@ router.post('/', isLoggedIn, housesCtrl.create);
 // GET "/houses/new" - New Route
 router.get('/new', isLoggedIn, housesCtrl.new);
 
+// GET "/houses/:id/edit" - Edit Route
+router.get('/:id/edit', isLoggedIn, housesCtrl.edit);
+
 // GET "/houses/:id" - Show Route
 router.get('/:id', housesCtrl.show);
+
+// PUT "/houses/:id" - Update Route
+router.put('/:id', isLoggedIn, housesCtrl.update);
+
+// DELETE "/houses/:id" - Delete Route
+router.delete('/:id', isLoggedIn, housesCtrl.delete);
 
 module.exports = router;

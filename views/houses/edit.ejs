@@ -1,0 +1,20 @@
+<%- include('../partials/header') %>
+<form action="/houses/<%= house._id %>?_m=PUT" method="post">
+  <label>Name: </label><input type="text" name="name" value="<%= house.name %>"><p>
+  <label>Location: </label><input type="text" name="location" value="<%= house.location %>"><p>
+  <label>Latitude/Longitude: </label><input type="text" name="latLon" value="<%= house.latLon %>"><p>
+  <label>Construction Year: </label><input type="number" name="constructionYear" min="1750" max="1900" value="<%= house.constructionYear %>"><p>
+  <label>Architectural Style: </label>
+  <select name="archStyle">
+    <% for(style of ['Federal', 'Colonial', 'Other']) { %>
+      <option value="<%= style %>"<% style === house.archStyle ? ' selected' : '' %>><%= style %></option>
+    <% } %>
+  </select><p>
+  <label>Featured Picture: </label><input type="text" name="featuredPicture" value="<%= house.featuredPicture %>"><p>
+  <label>Description: </label><textarea name="description" rows="4" cols="60"><%= house.description %></textarea><p>
+  <button type="submit" class="btn btn-primary">Update House</button>
+</form>
+<form action="/houses/<%= house._id %>?_m=DELETE" method="post">
+  <button type="submit" class="btn btn-danger">Delete House</button>
+</form>
+<%- include('../partials/footer') %>
