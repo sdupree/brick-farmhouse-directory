@@ -11,6 +11,7 @@ const isLoggedIn = require('./config/auth');
 
 const homeRouter = require('./routes/home');
 const picturesRouter = require('./routes/pictures');
+const commentsRouter = require('./routes/comments');
 const housesRouter = require('./routes/houses');
 const usersRouter = require('./routes/users');
 
@@ -50,6 +51,7 @@ app.use(function(req, res, next) {
 
 app.use('/', homeRouter);
 app.use('/', picturesRouter);
+app.use('/', commentsRouter);
 app.use('/houses', housesRouter);
 app.use('/users', usersRouter);
 

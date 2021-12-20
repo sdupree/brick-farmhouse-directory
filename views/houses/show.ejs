@@ -17,6 +17,22 @@
   <p><%= house.description %></p>
 </house-details>
 <house-comments>
+  <% if(house.comments.length) { %>
+    <table class="table"><tbody>
+      <% for(comment of house.comments) { %>
+        <tr><td><b><%= comment.userName %>: </b></td><td><%= comment.content %></td></tr>
+      <% } %>
+    </table>
+  <% } %>
+  <% if(user) { %>
+  <p>
+    <form action="/houses/<%= house._id %>/comments" method="post">
+      <label for="content">Add comment:</label><br>
+      <input type="text" size="50" id="comment" name="content" placeholder="Enter a comment...">
+      <button type="submit" class="btn btn-primary">Add Comment</button>
+    </form>
+  </p>
+  <% } %>
 </house-comments>
 <% if(user) { %>
 <house-admin>

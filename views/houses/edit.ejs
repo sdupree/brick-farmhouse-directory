@@ -1,4 +1,5 @@
 <%- include('../partials/header') %>
+<p><a href="/houses/<%= house._id %>"><button class="btn btn-primary">Back to House</button></a></p>
 <house-edit-primary>
   <form action="/houses/<%= house._id %>?_m=PUT" method="post">
     <p><label>Name: </label><input type="text" name="name" value="<%= house.name %>"></p>
