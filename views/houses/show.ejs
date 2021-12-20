@@ -20,7 +20,15 @@
   <% if(house.comments.length) { %>
     <table class="table"><tbody>
       <% for(comment of house.comments) { %>
-        <tr><td><b><%= comment.userName %>: </b></td><td><%= comment.content %></td></tr>
+        <tr>
+          <td><b><%= comment.userName %>: </b></td>
+          <td><%= comment.content %></td>
+          <td>
+            <% if(user && user._id.equals(comment.user)) { %>
+              <form action="/comments/<%= comment._id %>?_m=DELETE" method="post"><button class="btn btn-danger btn-sm">Delete</button></form>
+            <% } %>
+          </td>
+        </tr>
       <% } %>
     </table>
   <% } %>
