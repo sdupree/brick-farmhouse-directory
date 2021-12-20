@@ -1,20 +1,52 @@
 <%- include('../partials/header') %>
-<form action="/houses/<%= house._id %>?_m=PUT" method="post">
-  <label>Name: </label><input type="text" name="name" value="<%= house.name %>"><p>
-  <label>Location: </label><input type="text" name="location" value="<%= house.location %>"><p>
-  <label>Latitude/Longitude: </label><input type="text" name="latLon" value="<%= house.latLon %>"><p>
-  <label>Construction Year: </label><input type="number" name="constructionYear" min="1750" max="1900" value="<%= house.constructionYear %>"><p>
-  <label>Architectural Style: </label>
-  <select name="archStyle">
-    <% for(style of ['Federal', 'Colonial', 'Other']) { %>
-      <option value="<%= style %>"<% style === house.archStyle ? ' selected' : '' %>><%= style %></option>
-    <% } %>
-  </select><p>
-  <label>Featured Picture: </label><input type="text" name="featuredPicture" value="<%= house.featuredPicture %>"><p>
-  <label>Description: </label><textarea name="description" rows="4" cols="60"><%= house.description %></textarea><p>
-  <button type="submit" class="btn btn-primary">Update House</button>
-</form>
-<form action="/houses/<%= house._id %>?_m=DELETE" method="post">
-  <button type="submit" class="btn btn-danger">Delete House</button>
-</form>
+<house-edit-primary>
+  <form action="/houses/<%= house._id %>?_m=PUT" method="post">
+    <p><label>Name: </label><input type="text" name="name" value="<%= house.name %>"></p>
+    <p><label>Location: </label><input type="text" name="location" value="<%= house.location %>"></p>
+    <p><label>Latitude/Longitude: </label><input type="text" name="latLon" value="<%= house.latLon %>"></p>
+    <p><label>Construction Year: </label><input type="number" name="constructionYear" min="1750" max="1900" value="<%= house.constructionYear %>"></p>
+    <p><label>Architectural Style: </label>
+    <select name="archStyle">
+      <% for(style of ['Federal', 'Colonial', 'Other']) { %>
+        <option value="<%= style %>"<% style === house.archStyle ? ' selected' : '' %>><%= style %></option>
+      <% } %>
+    </select></p>
+    <p><label>Description: </label><textarea name="description" rows="4" cols="60"><%= house.description %></textarea></p>
+    <button type="submit" class="btn btn-primary">Update House</button>
+  </form>
+</house-edit-primary>
+<house-edit-images>
+  <p><table class="table"><thead><tr><th>Featured?</th><th>Thumbnail</th><th>URL</th><th>Delete?</th></tr></thead>
+    <tbody>
+      <% for(picture of house.pictures) {
+        console.log(picture);
+        console.log(house.featuredPicture);
+         %>
+        <tr>
+          <td>
+            <% if(house.featuredPicture === picture.URI) { %>
+              <button class="btn btn-secondary" disabled>Featured</button>
+            <% } else { %>
+              <form action="/pictures/<%= picture._id %>/feature" method="post"><button type="submit" class="btn btn-primary">Feature</button></form>
+            <% } %>
+          </td>
+          <td>
+            <img src="<%= picture.URI %>" class="thumb-img">
+          </td>
+          <td>
+            <a href="<%= picture.URI %>"><%= picture.URI %></a>
+          </td>
+          <td>
+            <form action="/pictures/<%= picture._id %>?_m=DELETE" method="post"><button type="submit" class="btn btn-danger">X</button></form>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table></p>
+</house-edit-images>
+<house-edit-delete>
+  <p><form action="/houses/<%= house._id %>?_m=DELETE" method="post">
+    <button type="submit" class="btn btn-danger">Delete House</button>
+  </form></p>
+</house-edit-delete>
 <%- include('../partials/footer') %>

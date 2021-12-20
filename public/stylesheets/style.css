@@ -154,3 +154,9 @@ house-text {
   width: 120px;
   height: 90px;
 }
+
+house-edit-delete {
+  padding: 60px 200px;
+  border: 5px solid red;
+  border-radius: 10px;
+}
