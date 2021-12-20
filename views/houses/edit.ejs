@@ -18,10 +18,7 @@
 <house-edit-images>
   <p><table class="table"><thead><tr><th>Featured?</th><th>Thumbnail</th><th>URL</th><th>Delete?</th></tr></thead>
     <tbody>
-      <% for(picture of house.pictures) {
-        console.log(picture);
-        console.log(house.featuredPicture);
-         %>
+      <% for(picture of house.pictures) { %>
         <tr>
           <td>
             <% if(house.featuredPicture === picture.URI) { %>
@@ -37,7 +34,11 @@
             <a href="<%= picture.URI %>"><%= picture.URI %></a>
           </td>
           <td>
-            <form action="/pictures/<%= picture._id %>?_m=DELETE" method="post"><button type="submit" class="btn btn-danger">X</button></form>
+            <% if(house.featuredPicture === picture.URI) { %>
+              <button class="btn btn-secondary" disabled>x</button>
+            <% } else { %>
+              <form action="/pictures/<%= picture._id %>?_m=DELETE" method="post"><button type="submit" class="btn btn-danger">X</button></form>
+            <% } %>
           </td>
         </tr>
       <% } %>

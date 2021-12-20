@@ -3,7 +3,8 @@ const Picture = require('../models/picture');
 
 module.exports = {
   create,
-  delete: deleteOne
+  delete: deleteOne,
+  feature
 };
 
 async function create(req, res) {
@@ -51,7 +52,20 @@ function deleteOne(req, res) {
       house.pictures = house.pictures.filter(picture => picture._id !== req.params.id);
       house.save(function(err) {
         if(err) console.log(err);
-        res.redirect(`/houses/${house._id}`);
+        res.redirect(`/houses/${house._id}/edit`);
+      });
+    });
+  });
+}
+
+function feature(req, res, next) {
+  Picture.findById(req.params.id).then(function(picture) {
+    House.findById(picture.house).then(function(house) {
+      house.featuredPicture = picture.URI;
+      house.save().then(function() {
+        res.redirect(`/houses/${house._id}/edit`);
+      }).catch(function(err) {
+        return next(err);
       });
     });
   });

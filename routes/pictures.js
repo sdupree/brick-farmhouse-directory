@@ -11,4 +11,7 @@ router.post('/houses/:id/pictures', isLoggedIn, picturesCtrl.create);
 // DELETE "/pictures/:id" - Delete Route
 router.delete('/pictures/:id', isLoggedIn, picturesCtrl.delete);
 
+// POST "/pictures/:id" - Feature Route
+router.post('/pictures/:id/feature', isLoggedIn, picturesCtrl.feature);
+
 module.exports = router;

@@ -21,8 +21,9 @@
 <% if(user) { %>
 <house-admin>
   <form action="/houses/<%= house._id %>/pictures" method="post">
+    <label for="URI">Add new picture:</label><br>
+    <input type="text" size="50" id="URI" name="URI" placeholder="Enter URL...">
     <button type="submit" class="btn btn-primary">Add New Picture</button>
-    <input type="text" size="50" id="URI" name="URI" placeholder="URI">
   </form>
   <br>
   <% if(user.equals(house.user)) { %>
