@@ -13,7 +13,6 @@ module.exports = {
 
 async function index(req, res) {
   const houses = await House.find({}).sort({createdAt: 'asc'});  // I assume "sort({createdAt: 'asc'})" is actually the default, but let's be explicit.
-  console.log(houses);
   res.render('houses/index', {title: "All Houses", houses});
 }
 
@@ -44,13 +43,11 @@ async function create(req, res, next) {
     });
     await picture.save();
 
-    // Get nextHouse and prevHouse for nav buttons.
-    const navs = await getNextAndPrevHouses(house);
+    // Insert our house into the Linked List.
+    const navs = await updateLinkedList(house, 'add');
     for(const key of ['prevHouse', 'nextHouse']) {
+      // Assign nextHouse and prevHouse for nav buttons.
       house[key] = navs[key];
-      // TODO: Update neghboring houses' values!
-      // prevHouse.nextHouse = house._id
-      // nextHouse.prevHouse = house._id
     }
     
     // Add new Picture back to House and save it.
@@ -60,7 +57,7 @@ async function create(req, res, next) {
     res.redirect(`/houses/${house._id}`);
   } catch(e) {
     console.log(e);
-    // res.redirect('/houses/new');
+    res.redirect('/houses/new');
   }
 }
 
@@ -94,15 +91,11 @@ async function update(req, res) {
 
 async function deleteOne(req, res) {
   try {
+    // Remove our house from the Linked List.
+    await updateLinkedList({_id: req.params.id}, 'delete');
+    
+    // Delete house.
     const result = await House.findByIdAndRemove(req.params.id);
-
-    // Update Linked List.
-    const navs = await getNextAndPrevHouses(house);
-    for(const key of ['prevHouse', 'nextHouse']) {
-      // TODO:
-      // prevHouse.nextHouse = nextHouse._id
-      // nextHouse.prevHouse = prevHouse._id
-    }
     
     res.redirect('/houses');
   } catch(e) {
@@ -111,19 +104,29 @@ async function deleteOne(req, res) {
   }
 }
 
-async function getNextAndPrevHouses(house) {
-  // Give us a house and we'll tell you which ones are ahead of it and behind it in the house index.
-  // It's a Linked List!
+async function updateLinkedList(house, mode) {
+  // Give us a house and a mode ("add"/"delete"). We'll update the neighboring elements, and return their IDs.
   const houses = await House.find({}).sort({createdAt: 'asc'});
   let prevHouse = '';
   let nextHouse = '';
   for(const idx in houses) {
     if(houses[idx]._id.equals(house._id)) {
-      const pos = parseInt(idx) + 1;  // CURSE YOU, 0-INDEXED ARRAYS.  DOUBLE-CURSE YOU, STRING ADDITION ON NOT-QUITE-INTEGERS.
+      const pos = parseInt(idx) + 1;  // CURSE YOU, 0-INDEXED ARRAYS.  DOUBLE-CURSE YOU, STRING CONCATENATION ON NOT-QUITE-INTEGERS.
       pos == 1 ? prevHouse = houses[houses.length - 1]._id : prevHouse = houses[parseInt(idx) - 1]._id;
       pos == houses.length ? nextHouse = houses[0]._id : nextHouse = houses[parseInt(idx) + 1]._id;
       break;
     }
   }
+
+  if(mode === 'add') {
+    // Insert our house between the "previous" and "next" houses.
+    await House.findOneAndUpdate({_id: prevHouse}, {nextHouse: house._id});
+    await House.findOneAndUpdate({_id: nextHouse}, {prevHouse: house._id});
+  } else if(mode === 'delete') {
+    // Skip our house; we're deleting it.
+    await House.findOneAndUpdate({_id: prevHouse}, {nextHouse: nextHouse});
+    await House.findOneAndUpdate({_id: nextHouse}, {prevHouse: prevHouse});
+  }
+
   return {prevHouse, nextHouse};
 }
