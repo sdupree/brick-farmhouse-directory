@@ -1,4 +1,4 @@
-const House = require("../models/house");
+const House = require('../models/house');
 const Picture = require('../models/picture');
 
 module.exports = {
@@ -19,22 +19,22 @@ async function home(req, res) {
 
 async function index(req, res) {
   const houses = await House.find({}).sort({createdAt: 'asc'});  // I assume "sort({createdAt: 'asc'})" is actually the default, but let's be explicit.
-  res.render('houses/index', { title: "All Houses", houses });
+  res.render('houses/index', { title: 'All Houses', houses });
 }
 
 async function show(req, res) {
   const house = await House.findById(req.params.id).populate('pictures').exec();
-  res.render("houses/show", { title: "House Detail", house });
+  res.render('houses/show', { title: 'House Detail', house });
 }
 
 function newHouse(req, res) {
-  res.render("houses/new", { title: "Add House" });
+  res.render('houses/new', { title: 'Add House' });
 }
 
 async function create(req, res, next) {
   try {
     // Delete empty properties from req.body.
-    for (let key in req.body) { if (req.body[key] === "") delete req.body[key]; }
+    for (let key in req.body) { if (req.body[key] === '') delete req.body[key]; }
     
     // Make new House object and save it.
     req.body.user = req.user._id;
