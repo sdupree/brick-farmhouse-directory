@@ -77,7 +77,7 @@ body > main {
   text-align: center;
 }
 
-house-nav, house-img {
+house-nav, house-picture {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,7 +87,7 @@ house-text {
   max-width: 800px;
 }
 
-#house-main-img {
+#house-picture-img {
   border: 2px solid black;
   border-radius: 5px;
 }
@@ -98,42 +98,42 @@ house-text {
   margin: 5px;
 }
 
-#nav-house-left {
+#nav-house-prev {
   background: url('/images/nav-house-left.png');
   background-size: 100% 100%;
 }
 
-#nav-house-right {
+#nav-house-next {
   background: url('/images/nav-house-right.png');
   background-size: 100% 100%;
 }
 
-#nav-img-left {
+#nav-picture-prev {
   background: url('/images/nav-img-left.png');
   background-size: 100% 100%;
 }
 
-#nav-img-right {
+#nav-picture-next {
   background: url('/images/nav-img-right.png');
   background-size: 100% 100%;
 }
 
-#nav-house-left:hover {
+#nav-house-prev:hover {
   background: url('/images/nav-house-left-hover.png');
   background-size: 100% 100%;
 }
 
-#nav-house-right:hover {
+#nav-house-next:hover {
   background: url('/images/nav-house-right-hover.png');
   background-size: 100% 100%;
 }
 
-#nav-img-left:hover {
+#nav-picture-prev:hover {
   background: url('/images/nav-img-left-hover.png');
   background-size: 100% 100%;
 }
 
-#nav-img-right:hover {
+#nav-picture-next:hover {
   background: url('/images/nav-img-right-hover.png');
   background-size: 100% 100%;
 }

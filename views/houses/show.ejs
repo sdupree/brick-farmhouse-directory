@@ -1,14 +1,14 @@
 <%- include('../partials/header') %>
 <house-nav>
-  <a href="/houses/<%= house.prevHouse %>"><div class="nav-icon" id="nav-house-left"></div></a>
+  <a href="/houses/<%= house.prevHouse %>"><div class="nav-icon" id="nav-house-prev"></div></a>
   <span id="house-name"><%= house.name %></span>
-  <a href="/houses/<%= house.nextHouse %>"><div class="nav-icon" id="nav-house-right"></div></a>
+  <a href="/houses/<%= house.nextHouse %>"><div class="nav-icon" id="nav-house-next"></div></a>
 </house-nav>
-<house-img>
-  <div class="nav-icon" id="nav-img-left"></div>
-  <img src="<%= house.featuredPicture %>" width="800" height="600" id="house-main-img">
-  <div class="nav-icon" id="nav-img-right"></div>
-</house-img>
+<house-picture>
+  <div class="nav-icon" id="nav-picture-prev"></div>
+  <img src="<%= house.featuredPicture %>" width="800" height="600" id="house-picture-img">
+  <div class="nav-icon" id="nav-picture-next"></div>
+</house-picture>
 <house-details>
   <table>
     <tr><td class="table-key">Location:</td><td><%= house.location %></td><td class="table-key">Latitude/Longitude:</td><td><%= house.latLon %></td></tr>
@@ -16,6 +16,13 @@
   </table>
   <p><%= house.description %></p>
 </house-details>
+<script>
+  const pictureList = [];
+  <% let i = 0; %>
+  <% for(const picture of house.pictures) { %>
+    pictureList[<%= i %>] = '<%= picture.URI %>';
+  <% i++; } %>
+</script>
 <house-comments>
   <% if(house.comments.length) { %>
     <table class="table"><tbody>

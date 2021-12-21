@@ -8,7 +8,7 @@
     <p><label>Construction Year: </label><input type="number" name="constructionYear" min="1750" max="1900" value="<%= house.constructionYear %>"></p>
     <p><label>Architectural Style: </label>
     <select name="archStyle">
-      <% for(style of ['Federal', 'Colonial', 'Other']) { %>
+      <% for(const style of ['Federal', 'Colonial', 'Other']) { %>
         <option value="<%= style %>"<% style === house.archStyle ? ' selected' : '' %>><%= style %></option>
       <% } %>
     </select></p>
@@ -20,7 +20,7 @@
 <house-edit-images>
   <p><table class="table"><thead><tr><th>Feature?</th><th>Thumbnail</th><th>URL</th><th>Delete?</th></tr></thead>
     <tbody>
-      <% for(picture of house.pictures) { %>
+      <% for(const picture of house.pictures) { %>
         <tr>
           <td>
             <% if(house.featuredPicture === picture.URI) { %>
