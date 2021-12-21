@@ -13,7 +13,7 @@ module.exports = {
 };
 
 async function home(req, res) {
-  const house = await House.findOne({ isFeatured: true });
+  const house = await House.findOne({ isFeatured: true }).populate('pictures').exec();
   res.render('home', { title: 'Brick Farmhouse Directory', house });
 }
 

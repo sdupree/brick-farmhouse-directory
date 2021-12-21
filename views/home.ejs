@@ -14,8 +14,9 @@
 </house-text>
 <script>
   const pictureList = [];
-  <% for(const [picture, idx] of house.pictures) { %>
-    pictureList[<%= idx %>] = '<%= picture.URI %>';
-  <% } %>
+  <% let i = 0; %>
+  <% for(const picture of house.pictures) { %>
+    pictureList[<%= i %>] = '<%= picture.URI %>';
+  <% i++; } %>
 </script>
 <%- include('./partials/footer') %>
