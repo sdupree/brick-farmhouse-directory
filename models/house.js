@@ -39,6 +39,8 @@ const houseSchema = new Schema({
     type: Boolean,
     default: false
   },
+  nextHouse: Schema.Types.ObjectId,
+  prevHouse: Schema.Types.ObjectId,
   comments: [commentSchema],
   pictures: [{
     type: Schema.Types.ObjectId,

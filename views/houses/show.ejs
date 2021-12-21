@@ -1,8 +1,8 @@
 <%- include('../partials/header') %>
 <house-nav>
-  <div class="nav-icon" id="nav-house-left"></div>
+  <a href="/houses/<%= house.prevHouse %>"><div class="nav-icon" id="nav-house-left"></div></a>
   <span id="house-name"><%= house.name %></span>
-  <div class="nav-icon" id="nav-house-right"></div>
+  <a href="/houses/<%= house.nextHouse %>"><div class="nav-icon" id="nav-house-right"></div></a>
 </house-nav>
 <house-img>
   <div class="nav-icon" id="nav-img-left"></div>
