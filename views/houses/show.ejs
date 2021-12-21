@@ -26,11 +26,11 @@
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-details" role="tabpanel" aria-labelledby="nav-details-tab">
     <house-details>
-      <table>
-        <tr><td class="table-key">Location:</td><td><%= house.location %></td><td class="table-key">Latitude/Longitude:</td><td><%= house.latLon %></td></tr>
-        <tr><td class="table-key">Construction Year:</td><td><%= house.constructionYear %></td><td class="table-key">Architectural Style:</td><td><%= house.archStyle %></td></tr>
+      <table class="table table-borderless">
+        <tr><th scope="row">Location:</th><td><%= house.location %></td><th scope="row">Latitude/Longitude:</th><td><%= house.latLon %></td></tr>
+        <tr><th scope="row">Construction Year:</th><td><%= house.constructionYear %></td><th scope="row">Architectural Style:</th><td><%= house.archStyle %></td></tr>
+        <p><%= house.description %></p>
       </table>
-      <p><%= house.description %></p>
     </house-details>
   </div>
   <div class="tab-pane fade" id="nav-comments" role="tabpanel" aria-labelledby="nav-comments-tab">
