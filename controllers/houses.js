@@ -2,6 +2,7 @@ const House = require("../models/house");
 const Picture = require('../models/picture');
 
 module.exports = {
+  home,
   index,
   show,
   new: newHouse,
@@ -11,9 +12,14 @@ module.exports = {
   delete: deleteOne
 };
 
+async function home(req, res) {
+  const house = await House.findOne({ isFeatured: true });
+  res.render('home', { title: 'Brick Farmhouse Directory', house });
+}
+
 async function index(req, res) {
   const houses = await House.find({}).sort({createdAt: 'asc'});  // I assume "sort({createdAt: 'asc'})" is actually the default, but let's be explicit.
-  res.render('houses/index', {title: "All Houses", houses});
+  res.render('houses/index', { title: "All Houses", houses });
 }
 
 async function show(req, res) {
@@ -69,6 +75,7 @@ function edit(req, res) {
 
 async function update(req, res) {
   try {
+    // Get house.
     const house = await House.findById(req.params.id);
     
     // Delete any empty properties from req.body.

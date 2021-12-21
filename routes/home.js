@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const passport = require('passport');
+const housesCtrl = require('../controllers/houses');
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('home', { title: 'Brick Farmhouse Directory' });
-});
+
+// GET "/" - Home Route
+router.get('/', housesCtrl.home);
 
 // Google OAuth login route
 router.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
