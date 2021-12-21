@@ -14,10 +14,11 @@
     </select></p>
     <p><label>Description: </label><textarea name="description" rows="4" cols="60"><%= house.description %></textarea></p>
     <button type="submit" class="btn btn-primary">Update House</button>
+    <input type="hidden" name="featuredPicture" value="<%= house.featuredPicture %>">
   </form>
 </house-edit-primary>
 <house-edit-images>
-  <p><table class="table"><thead><tr><th>Featured?</th><th>Thumbnail</th><th>URL</th><th>Delete?</th></tr></thead>
+  <p><table class="table"><thead><tr><th>Feature?</th><th>Thumbnail</th><th>URL</th><th>Delete?</th></tr></thead>
     <tbody>
       <% for(picture of house.pictures) { %>
         <tr>
