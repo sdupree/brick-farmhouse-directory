@@ -45,11 +45,9 @@ body > main {
   margin: 5px;
   text-decoration: none;
   padding: 10px;
-  /* border: 2px solid black; */
   border-radius: 5px;
   color: white;
   background-color: #643500;
-  /* max-height: 46px; */
 }
 
 .nav-a:hover:not(.active) {
@@ -66,11 +64,11 @@ body > main {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 48px;
 }
 
 .login img {
-  height: 30px;
+  height: 20px;
+  padding-left: 5px;
 }
 
 #house-name {
