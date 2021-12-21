@@ -1,55 +1,70 @@
 <%- include('../partials/header') %>
 <p><a href="/houses/<%= house._id %>"><button class="btn btn-primary">Back to House</button></a></p>
-<house-edit-primary>
-  <form action="/houses/<%= house._id %>?_m=PUT" method="post">
-    <p><label>Name: </label><input type="text" name="name" value="<%= house.name %>"></p>
-    <p><label>Location: </label><input type="text" name="location" value="<%= house.location %>"></p>
-    <p><label>Latitude/Longitude: </label><input type="text" name="latLon" value="<%= house.latLon %>"></p>
-    <p><label>Construction Year: </label><input type="number" name="constructionYear" min="1750" max="1900" value="<%= house.constructionYear %>"></p>
-    <p><label>Architectural Style: </label>
-    <select name="archStyle">
-      <% for(const style of ['Federal', 'Colonial', 'Other']) { %>
-        <option value="<%= style %>"<% style === house.archStyle ? ' selected' : '' %>><%= style %></option>
-      <% } %>
-    </select></p>
-    <p><label>Description: </label><textarea name="description" rows="4" cols="60"><%= house.description %></textarea></p>
-    <button type="submit" class="btn btn-primary">Update House</button>
-    <input type="hidden" name="featuredPicture" value="<%= house.featuredPicture %>">
-  </form>
-</house-edit-primary>
-<house-edit-images>
-  <p><table class="table"><thead><tr><th>Feature?</th><th>Thumbnail</th><th>URL</th><th>Delete?</th></tr></thead>
-    <tbody>
-      <% for(const picture of house.pictures) { %>
-        <tr>
-          <td>
-            <% if(house.featuredPicture === picture.URI) { %>
-              <button class="btn btn-secondary" disabled>Featured</button>
-            <% } else { %>
-              <form action="/pictures/<%= picture._id %>/feature" method="post"><button type="submit" class="btn btn-primary">Feature</button></form>
-            <% } %>
-          </td>
-          <td>
-            <img src="<%= picture.URI %>" class="thumb-img">
-          </td>
-          <td>
-            <a href="<%= picture.URI %>"><%= picture.URI %></a>
-          </td>
-          <td>
-            <% if(house.featuredPicture === picture.URI) { %>
-              <button class="btn btn-secondary" disabled>x</button>
-            <% } else { %>
-              <form action="/pictures/<%= picture._id %>?_m=DELETE" method="post"><button type="submit" class="btn btn-danger">X</button></form>
-            <% } %>
-          </td>
-        </tr>
-      <% } %>
-    </tbody>
-  </table></p>
-</house-edit-images>
-<house-edit-delete>
-  <p><form action="/houses/<%= house._id %>?_m=DELETE" method="post">
-    <button type="submit" class="btn btn-danger">Delete House</button>
-  </form></p>
-</house-edit-delete>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <button class="nav-link active" id="nav-details-tab" data-bs-toggle="tab" data-bs-target="#nav-details" type="button" role="tab" aria-controls="nav-details" aria-selected="true">Details</button>
+    <button class="nav-link" id="nav-pictures-tab" data-bs-toggle="tab" data-bs-target="#nav-pictures" type="button" role="tab" aria-controls="nav-pictures" aria-selected="false">Pictures</button>
+    <button class="nav-link" id="nav-delete-tab" data-bs-toggle="tab" data-bs-target="#nav-delete" type="button" role="tab" aria-controls="nav-delete" aria-selected="false">Delete House</button>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-details" role="tabpanel" aria-labelledby="nav-details-tab">
+    <house-edit-primary>
+      <form action="/houses/<%= house._id %>?_m=PUT" method="post">
+        <p><label>Name: </label><input type="text" name="name" value="<%= house.name %>"></p>
+        <p><label>Location: </label><input type="text" name="location" value="<%= house.location %>"></p>
+        <p><label>Latitude/Longitude: </label><input type="text" name="latLon" value="<%= house.latLon %>"></p>
+        <p><label>Construction Year: </label><input type="number" name="constructionYear" min="1750" max="1900" value="<%= house.constructionYear %>"></p>
+        <p><label>Architectural Style: </label>
+        <select name="archStyle">
+          <% for(const style of ['Federal', 'Colonial', 'Other']) { %>
+            <option value="<%= style %>"<% style === house.archStyle ? ' selected' : '' %>><%= style %></option>
+          <% } %>
+        </select></p>
+        <p><label>Description: </label><textarea name="description" rows="4" cols="60"><%= house.description %></textarea></p>
+        <button type="submit" class="btn btn-primary">Update House</button>
+        <input type="hidden" name="featuredPicture" value="<%= house.featuredPicture %>">
+      </form>
+    </house-edit-primary>
+  </div>
+  <div class="tab-pane fade" id="nav-pictures" role="tabpanel" aria-labelledby="nav-pictures-tab">
+    <house-edit-images>
+      <p><table class="table"><thead><tr><th>Feature?</th><th>Thumbnail</th><th>URL</th><th>Delete?</th></tr></thead>
+        <tbody>
+          <% for(const picture of house.pictures) { %>
+            <tr>
+              <td>
+                <% if(house.featuredPicture === picture.URI) { %>
+                  <button class="btn btn-secondary" disabled>Featured</button>
+                <% } else { %>
+                  <form action="/pictures/<%= picture._id %>/feature" method="post"><button type="submit" class="btn btn-primary">Feature</button></form>
+                <% } %>
+              </td>
+              <td>
+                <img src="<%= picture.URI %>" class="thumb-img">
+              </td>
+              <td>
+                <a href="<%= picture.URI %>"><%= picture.URI %></a>
+              </td>
+              <td>
+                <% if(house.featuredPicture === picture.URI) { %>
+                  <button class="btn btn-secondary" disabled>x</button>
+                <% } else { %>
+                  <form action="/pictures/<%= picture._id %>?_m=DELETE" method="post"><button type="submit" class="btn btn-danger">X</button></form>
+                <% } %>
+              </td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table></p>
+    </house-edit-images>
+  </div>
+  <div class="tab-pane fade" id="nav-delete" role="tabpanel" aria-labelledby="nav-delete-tab">
+    <house-edit-delete>
+      <p><div id="house-edit-delete-p"><form action="/houses/<%= house._id %>?_m=DELETE" method="post">
+        <button type="submit" class="btn btn-danger">Delete House</button>
+      </form></div></p>
+    </house-edit-delete>
+  </div>
+</div>
 <%- include('../partials/footer') %>

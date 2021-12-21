@@ -155,7 +155,7 @@ house-text {
   height: 90px;
 }
 
-house-edit-delete {
+#house-edit-delete-p {
   padding: 60px 200px;
   border: 5px solid red;
   border-radius: 10px;
