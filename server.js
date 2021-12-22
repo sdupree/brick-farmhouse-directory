@@ -13,6 +13,7 @@ const homeRouter = require('./routes/home');
 const picturesRouter = require('./routes/pictures');
 const commentsRouter = require('./routes/comments');
 const housesRouter = require('./routes/houses');
+const mapRouter = require('./routes/map');
 const usersRouter = require('./routes/users');
 
 // Load configuration from file.
@@ -53,6 +54,7 @@ app.use('/', homeRouter);
 app.use('/', picturesRouter);
 app.use('/', commentsRouter);
 app.use('/houses', housesRouter);
+app.use('/map', mapRouter);
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
