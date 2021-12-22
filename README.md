@@ -7,9 +7,11 @@ This app was designed for real-world deployment. One major holdup preventing tha
 
 
 ## Screenshots:
-![Screenshot 1](screenshot1-small.png)
-![Screenshot 2](screenshot2-small.png)
-![Screenshot 3](screenshot3-small.png)
+![Screenshot 1](screenshots/screenshot1.jpg)
+![Screenshot 2](screenshots/screenshot2.png)
+![Screenshot 3](screenshots/screenshot3.png)
+![Screenshot 4](screenshots/screenshot4.png)
+![Screenshot 5](screenshots/screenshot5.png)
 
 ## Technologies Used:
 - __Node.js__
@@ -22,6 +24,7 @@ This app was designed for real-world deployment. One major holdup preventing tha
 
 ## Getting Started:
 View the app as deployed on Heroku: <https://brick-farmhouse-directory.herokuapp.com/>
+
 Check out the Trello board: <https://trello.com/b/Ylw9AQyH/brick-farmhouse-directory>
 
 ### Visitor usage:
