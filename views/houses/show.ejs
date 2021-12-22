@@ -48,9 +48,11 @@
         <p>
         <% if(user) { %>
           <form action="/houses/<%= house._id %>/comments" method="post">
-            <label for="content">Add comment:</label><br>
-            <input type="text" size="50" id="comment" name="content" placeholder="Enter a comment...">
-            <button type="submit" class="btn btn-primary">Add Comment</button>
+            <label for="content" class="form-label">Add comment:</label>
+            <div class="input-group">
+              <input class="form-control" type="text" size="50" id="comment" name="content" placeholder="Enter a comment...">
+              <button type="submit" class="btn btn-primary">Add Comment</button>
+            </div>
           </form>
         <% } else { %>
           Log in to add comments!
