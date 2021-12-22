@@ -13,7 +13,9 @@
   <div class="nav nav-tabs" id="nav-tab" role="tablist">
     <button class="nav-link active" id="nav-details-tab" data-bs-toggle="tab" data-bs-target="#nav-details" type="button" role="tab" aria-controls="nav-details" aria-selected="true">Details</button>
     <button class="nav-link" id="nav-comments-tab" data-bs-toggle="tab" data-bs-target="#nav-comments" type="button" role="tab" aria-controls="nav-comments" aria-selected="false">Comments (<%= house.comments.length %>)</button>
-    <button class="nav-link" id="nav-admin-tab" data-bs-toggle="tab" data-bs-target="#nav-admin" type="button" role="tab" aria-controls="nav-admin" aria-selected="false">Admin</button>
+    <% if(user) { %>
+      <button class="nav-link" id="nav-admin-tab" data-bs-toggle="tab" data-bs-target="#nav-admin" type="button" role="tab" aria-controls="nav-admin" aria-selected="false">Admin</button>
+    <% } %>
   </div>
 </nav>
 <script>
@@ -36,7 +38,7 @@
   <div class="tab-pane fade" id="nav-comments" role="tabpanel" aria-labelledby="nav-comments-tab">
     <house-comments>
       <% if(house.comments.length) { %>
-        <table class="table"><tbody>
+        <table class="table table-borderless"><tbody>
           <% for(comment of house.comments) { %>
             <tr>
               <td><b><%= comment.userName %>: </b></td>
@@ -50,31 +52,33 @@
           <% } %>
         </table>
       <% } %>
-      <% if(user) { %>
       <p>
+      <% if(user) { %>
         <form action="/houses/<%= house._id %>/comments" method="post">
           <label for="content">Add comment:</label><br>
           <input type="text" size="50" id="comment" name="content" placeholder="Enter a comment...">
           <button type="submit" class="btn btn-primary">Add Comment</button>
         </form>
-      </p>
+      <% } else { %>
+        Log in to add comments!
       <% } %>
+      </p>
     </house-comments>
   </div>
-  <div class="tab-pane fade" id="nav-admin" role="tabpanel" aria-labelledby="nav-admin-tab">
-    <% if(user) { %>
-    <house-admin>
-      <form action="/houses/<%= house._id %>/pictures" method="post">
-        <label for="URI">Add new picture:</label><br>
-        <input type="text" size="50" id="URI" name="URI" placeholder="Enter URL...">
-        <button type="submit" class="btn btn-primary">Add New Picture</button>
-      </form>
-      <br>
-      <% if(user.equals(house.user)) { %>
-      <a href="/houses/<%= house._id %>/edit" class="btn btn-primary">Edit/Delete This House</a>
-      <% } %>
-    </house-admin>
-    <% } %>
-  </div>
+  <% if(user) { %>
+    <div class="tab-pane fade" id="nav-admin" role="tabpanel" aria-labelledby="nav-admin-tab">
+      <house-admin>
+        <form action="/houses/<%= house._id %>/pictures" method="post">
+          <label for="URI">Add new picture:</label><br>
+          <input type="text" size="50" id="URI" name="URI" placeholder="Enter URL...">
+          <button type="submit" class="btn btn-primary">Add New Picture</button>
+        </form>
+        <br>
+        <% if(user.equals(house.user)) { %>
+        <a href="/houses/<%= house._id %>/edit" class="btn btn-primary">Edit/Delete This House</a>
+        <% } %>
+      </house-admin>
+    </div>
+  <% } %>
 </div>
 <%- include('../partials/footer') %>
