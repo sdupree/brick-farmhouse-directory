@@ -13,10 +13,6 @@
   <p><h2>Welcome to <b>Brick Farmhouse Directory</b>!</h2> This site specializes in cataloging houses made of brick, generally between 1750 and 1900, in Federal, Colonial, or similar styles. Browse our index, enjoy our photos, and add houses if you know about ones we don't!</p>
 </house-text>
 <script>
-  const pictureList = [];
-  <% let i = 0; %>
-  <% for(const picture of house.pictures) { %>
-    pictureList[<%= i %>] = '<%= picture.URI %>';
-  <% i++; } %>
+  const pictureList = [<% for(const picture of house.pictures) { %>'<%= picture.URI %>',<% } %>];
 </script>
 <%- include('./partials/footer') %>
