@@ -93,6 +93,8 @@ house-content {
 #house-picture-img {
   border: 2px solid black;
   border-radius: 5px;
+  width: 800px;
+  height: 600px;
 }
 
 .nav-icon {
@@ -206,3 +208,9 @@ house-content {
   color: white;
 }
 
+#map {
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 800px;
+  height: 600px;
+}

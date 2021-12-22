@@ -47,6 +47,7 @@ app.use(passport.session());
 
 app.use(function(req, res, next) {
   res.locals.user = req.user;
+  res.locals.page = '';  // Key for flipping header attributes on and off. Should always exist, even if not defined. (Because JavaScript, that's why.)
   next();
 });
 
