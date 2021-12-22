@@ -82,9 +82,12 @@ house-nav, house-picture {
   justify-content: center;
   align-items: center;
 }
+house-picture {
+  margin-bottom: 10px;
+}
 
-house-text {
-  max-width: 800px;
+house-content {
+  width: 800px;
 }
 
 #house-picture-img {
@@ -155,8 +158,51 @@ house-text {
   height: 90px;
 }
 
+.top-gap {
+  height: 10px;
+}
+
 #house-edit-delete-p {
-  padding: 60px 200px;
+  width: 100%;
+  text-align: center;
+  padding: 100px 0;
   border: 5px solid red;
   border-radius: 10px;
 }
+
+#house-edit-return-btn {
+  margin-top: 1px;
+}
+
+#nav-delete-tab {
+  margin-right: auto;
+}
+
+.nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+  color: white;
+  background-color: #995200;
+  border-color: #643500;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #643500;
+}
+
+.nav-tabs .nav-link:hover:not(.active) {
+  border-color: #643500;
+  background-color: #995200;
+  color: #0ff;
+  isolation: isolate;
+}
+
+.nav-tabs .nav-link {
+  margin-bottom: -1px;
+  background: 0 0;
+  background-color: #643500;
+  border: 1px solid;
+  border-color: #ffdf9a #ffdf9a #643500;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+  color: white;
+}
+

@@ -1,27 +1,29 @@
 <%- include('../partials/header') %>
-<p><a href="/houses/<%= house._id %>"><button class="btn btn-primary">Back to House</button></a></p>
-<nav>
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+<house-content>
+<div class="top-gap"></div>
+<tab-nav>
+  <div class="nav nav-tabs justify-content-end" id="nav-tab" role="tablist">
     <button class="nav-link active" id="nav-details-tab" data-bs-toggle="tab" data-bs-target="#nav-details" type="button" role="tab" aria-controls="nav-details" aria-selected="true">Details</button>
     <button class="nav-link" id="nav-pictures-tab" data-bs-toggle="tab" data-bs-target="#nav-pictures" type="button" role="tab" aria-controls="nav-pictures" aria-selected="false">Pictures</button>
     <button class="nav-link" id="nav-delete-tab" data-bs-toggle="tab" data-bs-target="#nav-delete" type="button" role="tab" aria-controls="nav-delete" aria-selected="false">Delete House</button>
+    <a href="/houses/<%= house._id %>"><button class="btn btn-primary justify-content-end">Back to House</button></a>
   </div>
-</nav>
+</tab-nav>
 <div class="tab-content" id="nav-tabContent">
   <div class="tab-pane fade show active" id="nav-details" role="tabpanel" aria-labelledby="nav-details-tab">
     <house-edit-primary>
       <form action="/houses/<%= house._id %>?_m=PUT" method="post">
-        <p><label>Name: </label><input type="text" name="name" value="<%= house.name %>"></p>
-        <p><label>Location: </label><input type="text" name="location" value="<%= house.location %>"></p>
-        <p><label>Latitude/Longitude: </label><input type="text" name="latLon" value="<%= house.latLon %>"></p>
-        <p><label>Construction Year: </label><input type="number" name="constructionYear" min="1750" max="1900" value="<%= house.constructionYear %>"></p>
-        <p><label>Architectural Style: </label>
-        <select name="archStyle">
+        <p><label class="form-label">Name:</label><input class="form-control" type="text" name="name" value="<%= house.name %>"></p>
+        <p><label class="form-label">Location: </label><input class="form-control" type="text" name="location" value="<%= house.location %>"></p>
+        <p><label class="form-label">Latitude/Longitude: </label><input class="form-control" type="text" name="latLon" value="<%= house.latLon %>"></p>
+        <p><label class="form-label">Construction Year: </label><input class="form-control" type="number" name="constructionYear" min="1750" max="1900" value="<%= house.constructionYear %>"></p>
+        <p><label class="form-label">Architectural Style: </label>
+        <select name="archStyle" class="form-select">
           <% for(const style of ['Federal', 'Colonial', 'Other']) { %>
             <option value="<%= style %>"<% style === house.archStyle ? ' selected' : '' %>><%= style %></option>
           <% } %>
         </select></p>
-        <p><label>Description: </label><textarea name="description" rows="4" cols="60"><%= house.description %></textarea></p>
+        <p><label class="form-label">Description: </label><textarea class="form-control" name="description" rows="4" cols="60"><%= house.description %></textarea></p>
         <button type="submit" class="btn btn-primary">Update House</button>
         <input type="hidden" name="featuredPicture" value="<%= house.featuredPicture %>">
       </form>
@@ -67,4 +69,5 @@
     </house-edit-delete>
   </div>
 </div>
+</house-content>
 <%- include('../partials/footer') %>
