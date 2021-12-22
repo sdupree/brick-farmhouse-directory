@@ -7,11 +7,11 @@ This app was designed for real-world deployment. One major holdup preventing tha
 
 
 ## Screenshots:
-![Screenshot 1](screenshots/screenshot1.jpg)
-![Screenshot 2](screenshots/screenshot2.png)
-![Screenshot 3](screenshots/screenshot3.png)
-![Screenshot 4](screenshots/screenshot4.png)
-![Screenshot 5](screenshots/screenshot5.png)
+<a href="screenshots/screenshot1.jpg"><img src="screenshots/screenshot1.jpg" width="112" height="100"></a>
+<a href="screenshots/screenshot2.jpg"><img src="screenshots/screenshot2.jpg" width="112" height="100"></a>
+<a href="screenshots/screenshot3.png"><img src="screenshots/screenshot3.png" width="112" height="100"></a>
+<a href="screenshots/screenshot4.png"><img src="screenshots/screenshot4.png" width="112" height="100"></a>
+<a href="screenshots/screenshot5.png"><img src="screenshots/screenshot5.png" width="112" height="100"></a>
 
 ## Technologies Used:
 - __Node.js__
