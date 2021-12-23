@@ -12,6 +12,7 @@ This app was designed for real-world deployment. One major holdup preventing tha
 <a href="screenshots/screenshot3.png"><img src="screenshots/screenshot3.png" width="112" height="100"></a>
 <a href="screenshots/screenshot4.png"><img src="screenshots/screenshot4.png" width="112" height="100"></a>
 <a href="screenshots/screenshot5.png"><img src="screenshots/screenshot5.png" width="112" height="100"></a>
+<a href="screenshots/screenshot6.jpg"><img src="screenshots/screenshot6.jpg" width="112" height="100"></a>
 
 ## Technologies Used:
 - __Node.js__
