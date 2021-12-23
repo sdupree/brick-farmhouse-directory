@@ -42,3 +42,5 @@ Click the "Log In" button to access additional functionality. You can add new ho
 - Data Validation
 - Non-Google sign-in option(s)
 - Extended House Characteristics
+- Implement "User" page to view/manage all your houses/pictures/comments from one place
+- "View All Images" page with thumbnails of all images from all houses.
