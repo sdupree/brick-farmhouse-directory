@@ -1,6 +1,7 @@
 <%- include('../partials/header') %>
 <div class="top-gap"></div>
 <div id="map"></div>
+<div>Click on a pin to pick a house. Then click the link (or picture) in the popup to view that house's details.</div>
 <script>
 var map = L.map('map').fitBounds([[<%= bounds.north %>, <%= bounds.east %>], [<%= bounds.south %>, <%= bounds.west %>]]);
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
