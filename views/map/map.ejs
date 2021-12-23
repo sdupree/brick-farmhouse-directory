@@ -11,7 +11,8 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     zoomOffset: -1,
     accessToken: 'pk.eyJ1Ijoic2R1cHJlZSIsImEiOiJja3hpNXoyNGw0dWUxMnBtdTQ5ZjI4MmZsIn0.19iQPPtrr4jFeqmOLEJ1BA'
 }).addTo(map);
-var marker = L.marker([43.928481,-72.6703579]).addTo(map);
-
+<% for(house of houses) { %>
+L.marker([<%= house.latLon %>]).addTo(map).bindPopup('<a href="/houses/<%= house._id %>"><img class="map-thumb-img" src="<%= house.featuredPicture %>"><br><%= house.name %></a><br><b>Year Built:</b> <%= house.constructionYear %>');
+<% } %>
 </script>
 <%- include('../partials/footer') %>

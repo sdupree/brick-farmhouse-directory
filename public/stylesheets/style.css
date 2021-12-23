@@ -214,3 +214,10 @@ house-content {
   width: 800px;
   height: 600px;
 }
+
+.map-thumb-img {
+  border: 2px solid black;
+  border-radius: 5px;
+  width: 120px;
+  height: 90px;
+}
