@@ -1,4 +1,4 @@
-# brick-farmhouse-directory
+# Brick Farmhouse Directory
 Brick Farmhouse Directory is an application designed to host an index of houses (specifically, brick farmhouses, generally in New England, generally built between 1750 and 1900). This app was built to satisfy the requirements of Project 2 of GA's SEIR-11-08-21.
 
 Some features of this app are overbuilt for its size. For instance, the "House" objects are a Linked List for the navigation buttons, which reduces database load by storing the "next" and "previous" House IDs in each House object (so you don't need to query the database for a list of all houses and then find the "next" and "previous" houses on the fly), but increases the up-front code complexity, as well as the chance of things breaking down the line (e.g., there is no mechanism to validate or rebuild the Linked List [although that could certainly be added later]).
