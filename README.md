@@ -17,6 +17,7 @@ This app was designed for real-world deployment. One major holdup preventing tha
 ## Technologies Used:
 - __JavaScript__
 - __Node.js__
+- __Express.js__
 - __MongoDB__
 - __Mongoose__
 - __CSS__
