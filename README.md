@@ -15,11 +15,12 @@ This app was designed for real-world deployment. One major holdup preventing tha
 <a href="screenshots/screenshot6.jpg"><img src="screenshots/screenshot6.jpg" width="112" height="100"></a>
 
 ## Technologies Used:
+- __JavaScript__
 - __Node.js__
 - __MongoDB__
 - __Mongoose__
-- __JavaScript__
 - __CSS__
+- __Bootstrap__
 - __HTML__
 - __Google OAuth2__
 
@@ -38,6 +39,6 @@ Click the "Log In" button to access additional functionality. You can add new ho
 
 
 ## Next Steps:
-- Map
 - Data Validation
 - Non-Google sign-in option(s)
+- Extended House Characteristics
