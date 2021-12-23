@@ -59,8 +59,10 @@ function deleteOne(req, res) {
 }
 
 function feature(req, res, next) {
+  // Grab Picture, then grab House from Picture.house.
   Picture.findById(req.params.id).then(function(picture) {
     House.findById(picture.house).then(function(house) {
+      // Update featuredPicture and save House.
       house.featuredPicture = picture.URI;
       house.save().then(function() {
         res.redirect(`/houses/${house._id}/edit`);

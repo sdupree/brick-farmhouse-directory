@@ -13,8 +13,8 @@ function create(req, res, next) {
     req.body.user = req.user._id;
     req.body.userName = req.user.name;
 
+    // Add Comment to House, and save House.
     house.comments.push(req.body);
-
     house.save().then(function() {
       // Return to house's detail page.
       res.redirect(`/houses/${house._id}`);
@@ -29,11 +29,9 @@ function deleteComment(req, res, next) {
     
     // Ensure that the comment was created by the logged in user.
     if (!house.user.equals(req.user._id)) return res.redirect(`/houses/${house._id}`);
-    
-    // const comment = house.comments.id(req.params.id);
-    // comment.remove();
-    house.comments.id(req.params.id).remove();
 
+    // Delete Comment and save House.
+    house.comments.id(req.params.id).remove();
     house.save().then(function() {
       // Return to house's detail page.
       res.redirect(`/houses/${house._id}`);
