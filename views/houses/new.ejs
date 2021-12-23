@@ -1,17 +1,17 @@
 <%- include('../partials/header') %>
 <form action="/houses" method="post">
-  <p><label class="form-label">Name:</label><input class="form-control" type="text" name="name"></p>
-  <p><label class="form-label">Location:</label><input class="form-control" type="text" name="location"></p>
-  <p><label class="form-label">Latitude/Longitude:</label><input class="form-control" type="text" name="latLon"></p>
-  <p><label class="form-label">Construction Year:</label><input class="form-control" type="number" name="constructionYear" min="1750" max="1900"></p>
+  <p><label class="form-label">Name:</label><input class="form-control" type="text" name="name" placeholder="e.g. This Old House"></p>
+  <p><label class="form-label">Location:</label><input class="form-control" type="text" name="location" placeholder="e.g. Bethel, Vermont"></p>
+  <p><label class="form-label">Latitude/Longitude:</label><input class="form-control" type="text" name="latLon" placeholder="e.g. 43.188577, -73.057140"></p>
+  <p><label class="form-label">Construction Year:</label><input class="form-control" type="number" name="constructionYear" min="1750" max="1900" placeholder="e.g. 1821"></p>
   <p><label class="form-label">Architectural Style:</label>
   <select  class="form-control" name="archStyle">
-    <option value="Federal">Federal</option>
+    <option value="Federal" selected>Federal</option>
     <option value="Colonial">Colonial</option>
     <option value="Other">Other</option>
   </select></p>
-  <p><label class="form-label">Featured Picture:</label><input class="form-control" type="text" name="featuredPicture"></p>
-  <p><label class="form-label">Description:</label><textarea class="form-control" name="description" rows="4" cols="60"></textarea></p>
+  <p><label class="form-label">Featured Picture:</label><input class="form-control" type="text" name="featuredPicture" placeholder="e.g. https://i.imgur.com/rgwA5rR.jpg"></p>
+  <p><label class="form-label">Description:</label><textarea class="form-control" name="description" rows="4" cols="60" placeholder="e.g. This is the biggest house ever."></textarea></p>
   <input class="btn btn-primary" type="submit" value="Add House">  
 </form>
 <%- include('../partials/footer') %>
