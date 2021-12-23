@@ -20,10 +20,11 @@ This app was designed for real-world deployment. One major holdup preventing tha
 - __Express.js__
 - __MongoDB__
 - __Mongoose__
+- __HTML__
 - __CSS__
 - __Bootstrap__
-- __HTML__
 - __Google OAuth2__
+- __Leaflet API__
 
 ## Getting Started:
 View the app as deployed on Heroku: <https://brick-farmhouse-directory.herokuapp.com/>
